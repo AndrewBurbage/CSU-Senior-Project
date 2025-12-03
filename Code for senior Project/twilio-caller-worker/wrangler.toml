@@ -1,0 +1,3 @@
+name = "twilio-caller-worker"
+main = "src/start-call.js"
+compatibility_date = "2025-11-19"
