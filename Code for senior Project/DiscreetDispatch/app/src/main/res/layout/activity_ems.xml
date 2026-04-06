@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EMS">
+
+    <!-- Colored Header Bar -->
+    <View
+        android:id="@+id/header_bar"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@android:color/holo_blue_light"
+        android:clickable="false"
+        android:focusable="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_blue_dark"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toTopOf="@id/header_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="6dp"
+        android:translationZ="6dp"/>
+
+    <!-- Title container centered over the bar -->
+    <LinearLayout
+        android:id="@+id/title_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="@id/header_bar"
+        app:layout_constraintBottom_toBottomOf="@id/header_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_back"
+        app:layout_constraintHorizontal_bias="0.9">
+
+        <TextView
+            android:id="@+id/label_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Discreet Dispatch"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/label_ems"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EMS Response Request"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/header_bar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Container for Contents in vertical layout-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Name Field -->
+            <TextView
+                android:id="@+id/label_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter your name:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:labelFor="@id/et_name" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_name"
+                android:layout_margin="20dp"
+                android:hint="Name "
+                android:textSize="16sp"/>
+
+            <!-- Age Field -->
+            <TextView
+                android:id="@+id/label_age_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+            <RadioGroup
+                android:id="@+id/AgeOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="left"
+                android:layout_margin="16dp">
+
+                <RadioButton
+                    android:id="@+id/young"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Young: 25 years old or younger"
+                    android:textSize="16sp"/>
+
+                <RadioButton
+                    android:id="@+id/adult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adult: 25 years to 65 years old"
+                    android:textSize="16sp"/>
+
+                <RadioButton
+                    android:id="@+id/elderly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Elderly: over 65 years old"
+                    android:textSize="16sp"/>
+            </RadioGroup>
+
+            <!-- Gender Field -->
+            <TextView
+                android:id="@+id/label_gender_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+            <RadioGroup
+                android:id="@+id/GenderOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="16dp">
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textSize="16sp"/>
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textSize="16sp"/>
+            </RadioGroup>
+
+            <!-- Address Field -->
+            <TextView
+                android:id="@+id/label_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter your address:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:labelFor="@id/et_address" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_address"
+                android:layout_margin="20dp"
+                android:hint="Street Address, City, State, Zip  "
+                android:textSize="16sp"/>
+
+            <!-- Call Type Field -->
+            <TextView
+                android:id="@+id/label_call_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nature of Call:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+            <RadioGroup
+                android:id="@+id/CallOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="left"
+                android:layout_margin="16dp">
+
+                <RadioButton
+                    android:id="@+id/cardiac_issue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cardiac Issue"
+                    android:textSize="16sp"/>
+
+                <RadioButton
+                    android:id="@+id/burn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Burn (Chemical or Thermal)"
+                    android:textSize="16sp"/>
+                <RadioButton
+                    android:id="@+id/puncture_laceration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Puncture Wound or Laceration Wound"
+                    android:textSize="16sp"/>
+
+                <RadioButton
+                    android:id="@+id/unconcious_unresponsive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Unconcious or Unresponsive"
+                    android:textSize="16sp"/>
+            </RadioGroup>
+
+            <!-- Emergency Details -->
+            <TextView
+                android:id="@+id/label_emergency_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What are you or the victim's condition?"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:labelFor="@id/et_emergency_details" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_emergency_details"
+                android:layout_margin="20dp"
+                android:hint="TODO"
+                android:textSize="16sp"/>
+
+            <!-- Personal Danger Field -->
+            <TextView
+                android:id="@+id/label_danger_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Are you in immediate Danger?"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+            <RadioGroup
+                android:id="@+id/DangerOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="16dp">
+
+                <RadioButton
+                    android:id="@+id/danger_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textSize="16sp"/>
+
+                <RadioButton
+                    android:id="@+id/danger_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textSize="16sp"/>
+            </RadioGroup>
+
+            <!-- Personal Retreat Field -->
+            <TextView
+                android:id="@+id/label_safety_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Can you get to safety?"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+            <RadioGroup
+                android:id="@+id/SafetyOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="16dp">
+
+                <RadioButton
+                    android:id="@+id/safety_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textSize="16sp"/>
+
+                <RadioButton
+                    android:id="@+id/safety_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textSize="16sp"/>
+            </RadioGroup>
+
+            <!-- Other's Safety Field -->
+            <TextView
+                android:id="@+id/label_others_options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Is anyone else hurt or in danger?"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+            <RadioGroup
+                android:id="@+id/OthersOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_margin="16dp">
+
+                <RadioButton
+                    android:id="@+id/others_yes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textSize="16sp"/>
+
+                <RadioButton
+                    android:id="@+id/others_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textSize="16sp"/>
+            </RadioGroup>
+
+            <!-- Other's Safety Info -->
+            <TextView
+                android:id="@+id/label_others_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="If so, how many persons are what are their conditions?"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:labelFor="@id/et_others_details" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_others_details"
+                android:layout_margin="20dp"
+                android:hint="TODO maybe...Number of persons, any injuries, concious/unconcious, can they get to safety?"
+                android:textSize="16sp"/>
+
+            <!-- Other Info -->
+            <TextView
+                android:id="@+id/label_other_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Give any additional details:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:labelFor="@id/et_other_info" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_other_info"
+                android:layout_margin="20dp"
+                android:hint="TODO"
+                android:textSize="16sp"/>
+
+            <!-- Finish Button -->
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_finish"
+                android:layout_margin="4dp"
+                android:layout_gravity="center"
+                android:text="FINISH"
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:elevation="6dp"
+                android:translationZ="6dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
